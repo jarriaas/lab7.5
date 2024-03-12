@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 7.5</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/gh/hankhank10/alpine-fetch@main/alpine-fetch.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body class="h-screen bg-cover flex flex-col items-center justify-center text-center"
+    style="background-image:url('clouds.jpg')">
+
+    <div x-data="{
+        story: $fetchjson('https://dummyjson.com/posts/3', jsonItem='body'),
+        quote: $fetchjson('https://dummyjson.com/quotes/29', jsonItem='quote'),
+        author: $fetchjson('https://dummyjson.com/quotes/29', jsonItem='author')
+        }" class="w-3/4">
+
+        <div class="bg-blue-100 p-5 rounded m-4 border-8 border-indigo-200">
+            <h1 class="text-3xl">Story</h1>
+            <p x-text="story" class="text-lg"></p>
+        </div>
+
+        <div class="bg-blue-100 p-5 rounded m-4 border-8 border-indigo-200">
+            <h1 class="text-3xl">Relevant Quote</h1>
+            <p x-text="quote" class="text-lg"></p>
+            <p x-text="author" class="text-sm text-right"></p>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
